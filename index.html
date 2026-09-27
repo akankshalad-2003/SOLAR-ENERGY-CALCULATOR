@@ -1,0 +1,338 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Energy Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div>
+                <h1>⚡ Energy Calculator</h1>
+                <p>Calculate your daily energy consumption</p>
+            </div>
+
+            <button class="logout-btn">Logout</button>
+        </header>
+
+
+        <!-- USER INFORMATION -->
+        <section class="user-section">
+
+            <h2>User Information</h2>
+
+            <div class="user-form">
+
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="location">Location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter your location"
+                    >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEVICE SECTION -->
+        <section class="device-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Electrical Devices</h2>
+                    <p>Add your devices and their daily usage</p>
+                </div>
+
+                <button id="addDeviceBtn" class="add-btn">
+                    + Add Device
+                </button>
+
+            </div>
+
+
+            <!-- DEVICE TABLE -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Watt (W)</th>
+                            <th>Working Hours</th>
+                            <th>Power (kW)</th>
+                            <th>Energy (kWh)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="deviceTableBody">
+
+                        <!-- DEFAULT DEVICE 1 -->
+
+                        <tr class="device-row">
+
+                            <td>
+                                <input
+                                    type="text"
+                                    class="device-name"
+                                    placeholder="Fan"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="watt"
+                                    placeholder="75"
+                                    min="0"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="hours"
+                                    placeholder="8"
+                                    min="0"
+                                    max="24"
+                                >
+                            </td>
+
+                            <td class="kw-result">
+                                0.000
+                            </td>
+
+                            <td class="kwh-result">
+                                0.000
+                            </td>
+
+                            <td>
+                                <button
+                                    class="delete-btn"
+                                    onclick="deleteRow(this)"
+                                >
+                                    🗑️
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- DEFAULT DEVICE 2 -->
+
+                        <tr class="device-row">
+
+                            <td>
+                                <input
+                                    type="text"
+                                    class="device-name"
+                                    placeholder="Light"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="watt"
+                                    placeholder="15"
+                                    min="0"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="hours"
+                                    placeholder="6"
+                                    min="0"
+                                    max="24"
+                                >
+                            </td>
+
+                            <td class="kw-result">
+                                0.000
+                            </td>
+
+                            <td class="kwh-result">
+                                0.000
+                            </td>
+
+                            <td>
+                                <button
+                                    class="delete-btn"
+                                    onclick="deleteRow(this)"
+                                >
+                                    🗑️
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- DEFAULT DEVICE 3 -->
+
+                        <tr class="device-row">
+
+                            <td>
+                                <input
+                                    type="text"
+                                    class="device-name"
+                                    placeholder="TV"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="watt"
+                                    placeholder="100"
+                                    min="0"
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    class="hours"
+                                    placeholder="4"
+                                    min="0"
+                                    max="24"
+                                >
+                            </td>
+
+                            <td class="kw-result">
+                                0.000
+                            </td>
+
+                            <td class="kwh-result">
+                                0.000
+                            </td>
+
+                            <td>
+                                <button
+                                    class="delete-btn"
+                                    onclick="deleteRow(this)"
+                                >
+                                    🗑️
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULT SECTION -->
+
+        <section class="result-section">
+
+            <h2>Energy Summary</h2>
+
+            <div class="summary">
+
+                <div class="summary-card">
+                    <span>Total Power</span>
+                    <strong id="totalKw">0.000 kW</strong>
+                </div>
+
+                <div class="summary-card">
+                    <span>Daily Energy</span>
+                    <strong id="totalKwh">0.000 kWh</strong>
+                </div>
+
+            </div>
+
+
+            <!-- BATTERY -->
+
+            <div class="battery-section">
+
+                <label for="batterySize">
+                    Battery Backup Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="batterySize"
+                    placeholder="Enter backup hours"
+                    min="1"
+                >
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="action-buttons">
+
+                <button id="calculateBtn" class="calculate-btn">
+                    ⚡ Calculate Energy
+                </button>
+
+                <button id="resetBtn" class="reset-btn">
+                    ↻ Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOLAR RESULT -->
+
+        <section class="solar-section">
+
+            <h2>☀️ Solar & Battery Estimate</h2>
+
+            <div id="solarResult">
+
+                <p>
+                    Enter device details and click
+                    <strong>Calculate Energy</strong>.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,515 @@
+ /* =========================================
+   ENERGY CALCULATOR - MAIN STYLESHEET
+   ========================================= */
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---------- BODY ---------- */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* ---------- MAIN CONTAINER ---------- */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.header {
+    background: linear-gradient(135deg, #0f766e, #0ea5a4);
+    color: white;
+
+    padding: 25px 30px;
+
+    border-radius: 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+.header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+
+/* ---------- LOGOUT BUTTON ---------- */
+
+.logout-btn {
+    background: white;
+    color: #0f766e;
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ---------- COMMON SECTION ---------- */
+
+.user-section,
+.device-section,
+.result-section,
+.solar-section {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+    color: #111827;
+}
+
+
+/* ---------- USER FORM ---------- */
+
+.user-form {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #0f766e;
+
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+
+/* ---------- DEVICE SECTION HEADER ---------- */
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    margin-bottom: 5px;
+}
+
+.section-heading p {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* ---------- ADD DEVICE BUTTON ---------- */
+
+.add-btn {
+    background: #0f766e;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background: #0b5f59;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------- TABLE ---------- */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+thead {
+    background: #ecfdf5;
+}
+
+th {
+    padding: 14px 10px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    color: #065f46;
+
+    border-bottom: 2px solid #d1fae5;
+}
+
+td {
+    padding: 12px 8px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* ---------- TABLE INPUTS ---------- */
+
+td input {
+    width: 100%;
+
+    padding: 9px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+td input:focus {
+    border-color: #0f766e;
+
+    box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.08);
+}
+
+
+/* ---------- CALCULATION CELLS ---------- */
+
+.kw-result,
+.kwh-result {
+    font-weight: bold;
+
+    color: #0f766e;
+}
+
+
+/* ---------- DELETE BUTTON ---------- */
+
+.delete-btn {
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    border: none;
+
+    padding: 8px 10px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+
+    transform: scale(1.05);
+}
+
+
+/* ---------- SUMMARY ---------- */
+
+.summary {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    background: #f0fdfa;
+
+    border: 1px solid #ccfbf1;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.summary-card span {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.summary-card strong {
+    font-size: 25px;
+
+    color: #0f766e;
+}
+
+
+/* ---------- BATTERY ---------- */
+
+.battery-section {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+.battery-section label {
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.battery-section input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    outline: none;
+}
+
+.battery-section input:focus {
+    border-color: #0f766e;
+}
+
+
+/* ---------- ACTION BUTTONS ---------- */
+
+.action-buttons {
+    display: flex;
+
+    gap: 12px;
+}
+
+.calculate-btn,
+.reset-btn {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.calculate-btn {
+    background: #0f766e;
+
+    color: white;
+
+    flex: 1;
+}
+
+.calculate-btn:hover {
+    background: #0b5f59;
+
+    transform: translateY(-2px);
+}
+
+.reset-btn {
+    background: #e5e7eb;
+
+    color: #374151;
+
+    padding-left: 25px;
+
+    padding-right: 25px;
+}
+
+.reset-btn:hover {
+    background: #d1d5db;
+}
+
+
+/* ---------- SOLAR SECTION ---------- */
+
+.solar-section {
+    background: linear-gradient(
+        135deg,
+        #ecfdf5,
+        #f0fdfa
+    );
+
+    border: 1px solid #ccfbf1;
+}
+
+.solar-section h2 {
+    color: #065f46;
+}
+
+#solarResult {
+    padding: 18px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    color: #4b5563;
+
+    line-height: 1.7;
+}
+
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    .header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .logout-btn {
+        width: 100%;
+    }
+
+    .user-form {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .calculate-btn,
+    .reset-btn {
+        width: 100%;
+    }
+}
